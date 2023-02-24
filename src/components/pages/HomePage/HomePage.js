@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Styles from './HomePage.styles';
 import { useMoviesData } from '../../../hooks/useMoviesData';
+import { AiFillStar } from 'react-icons/ai';
 
 const HomePage = () => {
   const { movies, loading, error } = useMoviesData('/popular');
@@ -17,7 +18,10 @@ const HomePage = () => {
           {movie.release_date.split('-')[0]}
         </Styles.MovieProdYear>
       </Styles.TitleAndYear>
-      <Styles.MovieRating>{movie.vote_average}</Styles.MovieRating>
+      <Styles.MovieRating>
+        <AiFillStar />
+        <p>{movie.vote_average}</p>
+      </Styles.MovieRating>
     </Styles.MovieContainer>
   ));
 

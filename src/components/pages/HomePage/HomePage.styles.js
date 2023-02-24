@@ -43,15 +43,18 @@ export const MovieProdYear = styled.p`
   font-size: 0.8rem;
   width: fit-content;
   padding: 4px;
-  margin: 0 0 12px 12px;
+  margin: 0 0 18px 12px;
   border: 2px solid ${WHITE};
   border-radius: 12px;
   color: ${WHITE};
 `;
 
 export const MovieRating = styled.p`
+  display: flex;
+  align-items: center;
   position: absolute;
   top: 0;
   right: 0;
   margin: 20px;
+  font-size: 1.2rem;
 `;
