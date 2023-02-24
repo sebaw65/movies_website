@@ -7,14 +7,18 @@ const HomePage = () => {
   console.log(movies);
 
   const moviesList = movies.map((movie) => (
-    <div key={movie.id}>
-      <p>{movie.title}</p>
+    <Styles.MovieContainer key={movie.id}>
       <Styles.PosterImg
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
       />
-      <p>{movie.release_date.split('-')[0]}</p>
-      <p>{movie.vote_average}</p>
-    </div>
+      <Styles.TitleAndYear>
+        <Styles.MovieTitle>{movie.title}</Styles.MovieTitle>
+        <Styles.MovieProdYear>
+          {movie.release_date.split('-')[0]}
+        </Styles.MovieProdYear>
+      </Styles.TitleAndYear>
+      <Styles.MovieRating>{movie.vote_average}</Styles.MovieRating>
+    </Styles.MovieContainer>
   ));
 
   return (
