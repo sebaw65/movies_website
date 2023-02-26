@@ -16,18 +16,20 @@ export const useMoviesData = (query) => {
       const res = await fetch(
         `https://api.themoviedb.org/3/movie/${query}?api_key=${key}&page=1`
       );
-      const movies = await res.json();
 
-      //jesli istnieje klucz results to zwracamy jego zawartosc
-      if (movies.results) setMovies(movies.results);
-      //jesli nie istnieje zwracamy caly obiekt
-      else setMovies(movies);
+      if (res.status === 200) {
+        const movies = await res.json();
+
+        //jesli istnieje klucz results to zwracamy jego zawartosc
+        if (movies.results) setMovies(movies.results);
+        //jesli nie istnieje zwracamy caly obiekt
+        else setMovies(movies);
+      }
     } catch (err) {
       setError(err.message);
     }
     setLoading(false);
   };
-  console.log(movies);
 
   return { movies, loading, error };
 };

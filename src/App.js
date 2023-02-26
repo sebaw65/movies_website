@@ -1,16 +1,14 @@
-import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './components/pages/HomePage/HomePage';
-import MoviePage from './components/pages/MoviePage/MoviePage';
-import { useMoviesData } from './hooks/useMoviesData';
+import Home from './components/sites/Home/Home';
+import Movie from './components/sites/Movie/Movie';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/movie/:id" element={<MoviePage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/movie/:id" element={<Movie />} />
         </Routes>
       </BrowserRouter>
     </>
