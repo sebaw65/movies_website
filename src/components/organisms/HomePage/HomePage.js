@@ -4,7 +4,7 @@ import { useMoviesData } from '../../../hooks/useMoviesData';
 import Movie from '../../molecules/MoviePoster/MoviePoster';
 
 const HomePage = () => {
-  const { movies, loading, error } = useMoviesData('/popular');
+  const { movies } = useMoviesData('/popular');
   // console.log(movies);
 
   return (

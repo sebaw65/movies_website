@@ -7,7 +7,7 @@ import * as Styles from './StyledMoviePage';
 
 const MoviePage = () => {
   const { id } = useParams();
-  const { movies, loading, error } = useMoviesData(id);
+  const { movies } = useMoviesData(id);
   // console.log(movies);
 
   return (
