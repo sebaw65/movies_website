@@ -1,33 +1,29 @@
 import React from 'react';
 import * as Styles from './HomePage.styles';
 import { useMoviesData } from '../../../hooks/useMoviesData';
-import { AiFillStar } from 'react-icons/ai';
+import Movie from '../../organisms/MoviePoster/MoviePoster';
 
 const HomePage = () => {
   const { movies, loading, error } = useMoviesData('/popular');
-  console.log(movies);
+  // console.log(movies);
 
-  const moviesList = movies.map((movie) => (
-    <Styles.MovieContainer key={movie.id}>
-      <Styles.PosterImg
-        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-      />
-      <Styles.TitleAndYear>
-        <Styles.MovieTitle>{movie.title}</Styles.MovieTitle>
-        <Styles.MovieProdYear>
-          {movie.release_date.split('-')[0]}
-        </Styles.MovieProdYear>
-      </Styles.TitleAndYear>
-      <Styles.MovieRating>
-        <AiFillStar />
-        <p>{movie.vote_average}</p>
-      </Styles.MovieRating>
-    </Styles.MovieContainer>
-  ));
-
+  const handleClick = () => {
+    console.log('click');
+  };
   return (
     <Styles.Wrapper>
-      <Styles.StyledMoviesList>{moviesList}</Styles.StyledMoviesList>
+      <Styles.StyledMoviesList>
+        {movies.map((movie) => (
+          <Movie
+            key={movie.id}
+            imgUrl={movie.poster_path}
+            title={movie.title}
+            relaseDate={movie.release_date}
+            rate={movie.vote_average}
+            onClick={handleClick}
+          />
+        ))}
+      </Styles.StyledMoviesList>
     </Styles.Wrapper>
   );
 };
