@@ -1,34 +1,43 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useMoviesData } from '../../../hooks/useMoviesData';
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar, AiFillClockCircle } from 'react-icons/ai';
+
+import * as Styles from './StyledMoviePage';
 
 const MoviePage = () => {
   const { id } = useParams();
   const { movies, loading, error } = useMoviesData(id);
-  console.log(movies);
+  // console.log(movies);
 
   return (
-    <div>
-      <img
+    <Styles.Content>
+      <Styles.PosterImg
         src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
         alt={movies.title}
       />
-      <h1>{movies.title}</h1>
-      <div>
+      <Styles.Title>{movies.title}</Styles.Title>
+      <Styles.Rating>
         <AiFillStar /> <p>{movies.vote_average}</p>
-      </div>
-      {movies.runtime ? <p>{`${movies.runtime} minutes`} </p> : null}
-      {movies.release_date ? (
-        <p>${movies.release_date.split('-')[0]} </p>
-      ) : null}
-      {movies.genres
-        ? movies.genres.map((category) => (
-            <p key={category.id}>{category.name}</p>
-          ))
-        : null}
-      {movies.overview ? <p>{movies.overview}</p> : null}
-    </div>
+      </Styles.Rating>
+      <Styles.Runtime>
+        <AiFillClockCircle />
+        <p>{movies.runtime ? `${movies.runtime} minutes` : null}</p>
+      </Styles.Runtime>
+      <Styles.ReleaseDate>
+        {movies.release_date ? movies.release_date.split('-')[0] : null}
+      </Styles.ReleaseDate>
+      <Styles.Categories>
+        {movies.genres
+          ? movies.genres.map((category) => (
+              <p key={category.id}>{category.name}</p>
+            ))
+          : null}
+      </Styles.Categories>
+      <Styles.Description>
+        {movies.overview ? movies.overview : null}
+      </Styles.Description>
+    </Styles.Content>
   );
 };
 
