@@ -7,20 +7,17 @@ const HomePage = () => {
   const { movies, loading, error } = useMoviesData('/popular');
   // console.log(movies);
 
-  const handleClick = () => {
-    console.log('click');
-  };
   return (
     <Styles.Wrapper>
       <Styles.StyledMoviesList>
         {movies.map((movie) => (
           <Movie
             key={movie.id}
+            id={movie.id}
             imgUrl={movie.poster_path}
             title={movie.title}
             relaseDate={movie.release_date}
             rate={movie.vote_average}
-            onClick={handleClick}
           />
         ))}
       </Styles.StyledMoviesList>
