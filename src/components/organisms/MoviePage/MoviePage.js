@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMoviesData } from '../../../hooks/useMoviesData';
 import { AiFillStar, AiFillClockCircle } from 'react-icons/ai';
 
-import * as Styles from './StyledMoviePage';
+import * as Styles from './MoviePage.Styled';
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -22,21 +22,17 @@ const MoviePage = () => {
       </Styles.Rating>
       <Styles.Runtime>
         <AiFillClockCircle />
-        <p>{movies.runtime ? `${movies.runtime} minutes` : null}</p>
+        <p>{`${movies.runtime} minutes`}</p>
       </Styles.Runtime>
       <Styles.ReleaseDate>
-        {movies.release_date ? movies.release_date.split('-')[0] : null}
+        {movies.release_date?.split('-')[0]}
       </Styles.ReleaseDate>
       <Styles.Categories>
-        {movies.genres
-          ? movies.genres.map((category) => (
-              <p key={category.id}>{category.name}</p>
-            ))
-          : null}
+        {movies.genres?.map((category) => (
+          <p key={category.id}>{category.name}</p>
+        ))}
       </Styles.Categories>
-      <Styles.Description>
-        {movies.overview ? movies.overview : null}
-      </Styles.Description>
+      <Styles.Description>{movies.overview}</Styles.Description>
     </Styles.Content>
   );
 };
