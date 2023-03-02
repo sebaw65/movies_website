@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMoviesData } from '../../../hooks/useMoviesData';
 import { AiFillStar, AiFillClockCircle } from 'react-icons/ai';
 
-import * as Styles from './MoviePage.Styled';
+import * as Styles from './MoviePage.styled';
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -12,11 +12,11 @@ const MoviePage = () => {
 
   return (
     <Styles.Content>
-      <Styles.PosterImg
+      <img
         src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
         alt={movies.title}
       />
-      <Styles.Title>{movies.title}</Styles.Title>
+      <h1>{movies.title}</h1>
       <Styles.Rating>
         <AiFillStar /> <p>{movies.vote_average}</p>
       </Styles.Rating>
