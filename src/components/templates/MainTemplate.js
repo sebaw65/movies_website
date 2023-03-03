@@ -54,6 +54,7 @@ const MainTemplate = ({ children }) => {
             ))
           : null}
       </div>
+      {/*!!!! w tym miejscu trzeba wywołać odświeżenie stanu !!!!*/}
       <div style={{ display: 'flex', marginTop: '20px' }}>{children}</div>
     </div>
   );
