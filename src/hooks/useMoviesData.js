@@ -8,7 +8,7 @@ export const useMoviesData = (query) => {
   useEffect(() => {
     setLoading(true);
     getData();
-  }, []);
+  }, [query]);
 
   const getData = async () => {
     const key = process.env.REACT_APP_API_KEY;

@@ -6,13 +6,14 @@ const MainTemplate = ({ children }) => {
 
   //odświeżanie komponentu
   const getSelectedId = (e) => {
+    // console.log(e);
     setSelectedMovie(e);
   };
+  console.log(selectedMovie);
 
   return (
     <div style={{ backgroundColor: '#131313', color: '#fff', height: '100%' }}>
       <SearchPanel selectMovie={getSelectedId} />
-      {/*!!!! w tym miejscu trzeba wywołać odświeżenie stanu !!!!*/}
       {children}
     </div>
   );
