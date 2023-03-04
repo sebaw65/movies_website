@@ -3,17 +3,18 @@ import styled from 'styled-components';
 export const Content = styled.article`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(20, 1fr);
-  grid-auto-rows: max-content;
+  /* grid-template-rows: repeat(20, 1fr); */
+  grid-auto-rows: fit-content;
   width: 80vw;
   margin: 0 auto;
   column-gap: 14px;
   row-gap: 10px;
-  height: 100vh;
+  height: 100%;
 
   & > img {
-    width: 100%;
+    /* box-sizing: ; */
     height: 100%;
+    width: 100%;
     grid-column: 1/1;
     grid-row: 2 / 16;
     object-fit: cover;
@@ -46,6 +47,7 @@ export const Runtime = styled.h3`
   font-size: 1.5rem;
   & > p {
     margin-left: 5px;
+    white-space: nowrap;
   }
 `;
 
@@ -64,6 +66,9 @@ export const Categories = styled.div`
   grid-column: 2;
   grid-row: 7;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
   & > p {
     font-size: 1.2rem;
     border: 2px solid #fff;
