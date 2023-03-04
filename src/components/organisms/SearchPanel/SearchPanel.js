@@ -23,7 +23,12 @@ const SearchPanel = ({ selectMovie }) => {
       />
 
       {moviesList.map((el) => (
-        <Link key={el.id} id={el.id} to={`/movie/${el.id}`}>
+        <Link
+          key={el.id}
+          id={el.id}
+          to={`/movie/${el.id}`}
+          onClick={() => setInput('')}
+        >
           {el.original_title}
         </Link>
       ))}
