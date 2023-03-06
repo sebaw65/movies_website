@@ -2,21 +2,20 @@ import styled from 'styled-components';
 
 export const Content = styled.article`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 0.9fr 1.1fr;
   /* grid-template-rows: repeat(20, 1fr); */
   grid-auto-rows: fit-content;
   width: 80vw;
-  margin: 0 auto;
+  margin: 50px auto;
   column-gap: 14px;
   row-gap: 10px;
-  height: 100%;
 
   & > img {
     /* box-sizing: ; */
     height: 100%;
     width: 100%;
     grid-column: 1/1;
-    grid-row: 2 / 16;
+    grid-row: 2 / 10;
     object-fit: cover;
   }
 
@@ -76,14 +75,15 @@ export const Categories = styled.div`
     width: fit-content;
     border-radius: 3px;
     margin-right: 14px;
+    margin-bottom: 10px;
     padding: 5px;
     white-space: nowrap;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 `;
 
 export const Description = styled.p`
   font-size: 1.1rem;
   grid-column: 2;
-  grid-row: 9/20;
+  grid-row: 9/10;
 `;

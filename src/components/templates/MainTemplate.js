@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import SearchPanel from '../organisms/SearchPanel/SearchPanel';
 
+import * as Styles from './MainTemplate.styles';
+
 const MainTemplate = ({ children }) => {
   const [selectedMovie, setSelectedMovie] = useState();
 
@@ -12,10 +14,13 @@ const MainTemplate = ({ children }) => {
   console.log(selectedMovie);
 
   return (
-    <div style={{ backgroundColor: '#131313', color: '#fff', height: '100%' }}>
-      <SearchPanel selectMovie={getSelectedId} />
+    <Styles.MainContainer>
+      <header>
+        Logo
+        <SearchPanel selectMovie={getSelectedId} />
+      </header>
       {children}
-    </div>
+    </Styles.MainContainer>
   );
 };
 
