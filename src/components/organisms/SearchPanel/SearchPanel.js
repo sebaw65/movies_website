@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import * as Styles from './SearchPanel.style';
 
-const SearchPanel = ({ selectMovie }) => {
+const SearchPanel = () => {
   const [input, setInput] = useState('');
   const { moviesList } = useSearchMovies(input);
 

@@ -1,24 +1,12 @@
 import React, { useState } from 'react';
-import SearchPanel from '../organisms/SearchPanel/SearchPanel';
 
 import * as Styles from './MainTemplate.styles';
+import Header from '../organisms/header/Header';
 
 const MainTemplate = ({ children }) => {
-  const [selectedMovie, setSelectedMovie] = useState();
-
-  //odświeżanie komponentu
-  const getSelectedId = (e) => {
-    // console.log(e);
-    setSelectedMovie(e);
-  };
-  console.log(selectedMovie);
-
   return (
     <Styles.MainContainer>
-      <header>
-        Logo
-        <SearchPanel selectMovie={getSelectedId} />
-      </header>
+      <Header />
       {children}
     </Styles.MainContainer>
   );

@@ -6,7 +6,7 @@ export const Content = styled.article`
   /* grid-template-rows: repeat(20, 1fr); */
   grid-auto-rows: fit-content;
   width: 80vw;
-  margin: 50px auto;
+  margin: 0 auto;
   column-gap: 14px;
   row-gap: 10px;
 

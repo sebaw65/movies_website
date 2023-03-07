@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useMoviesData } from '../../../hooks/useMoviesData';
 import { AiFillStar, AiFillClockCircle } from 'react-icons/ai';
@@ -8,12 +8,7 @@ import * as Styles from './MoviePage.styled';
 const MoviePage = () => {
   const { id } = useParams();
 
-  console.log(id);
-
   const { movies } = useMoviesData(id);
-  // console.log(movies);
-
-  // console.log(movies.original_title);
 
   return (
     <Styles.Content id={id}>
