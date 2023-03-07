@@ -16,10 +16,8 @@ export const useMoviesData = (query) => {
       const res = await fetch(
         `https://api.themoviedb.org/3/movie/${query}?api_key=${key}&page=1`
       );
-
       if (res.status === 200) {
         const movies = await res.json();
-
         //jesli istnieje klucz results to zwracamy jego zawartosc
         if (movies.results) setMovies(movies.results);
         //jesli nie istnieje zwracamy caly obiekt
