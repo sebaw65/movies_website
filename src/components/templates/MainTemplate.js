@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import * as Styles from './MainTemplate.styles';
 import Header from '../organisms/header/Header';
